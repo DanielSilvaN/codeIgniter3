@@ -12,19 +12,54 @@ function creaRProfesor($data){
 function obtenerProfesor(){
 	#Extraer todas las filas
 
+
+
+$db1=new mysqli("127.0.0.1","root","","uvmovil");
+	if($db1->connect_error)
+		echo "error";
+
 $consulta = "SELECT * FROM usuarioProfesor";
 
-$resultado = $this-> db-> query($consulta);
+$resultado = $db1-> query($consulta);
+
+$numerosfilas=$resultado->num_rows;
+echo "el numero de elementos es " .$numerosfilas;
 
 echo "<span style='color: blue;'>Extracción de todas las filas ...</span>";
+for($x=0;$x<$numerosfilas;$x++){
+	$fila = $resultado->fetch_object();
+	echo "<tr>";
+	echo "<td>".$fila->nombreProfesor."</td>";
+	echo "<td>".$fila->rutProfesor."</td>";
+	echo "<td>".$fila->profesionProfesor."</td>";
+	echo "</tr>";
+//while($file = $resultado -> fbsql_fetch_row() ){
 
-while($file = $resultado -> fetch_array() ){
+//echo "nombre: " . $fila["nombreProfesor"] . "";
 
-echo "nombre: " . $fila["nombreProfesor"] . "";
-
-echo "Profesion: " . $fila["profesionProfesor"] . "<hr>";
+//echo "Profesion: " . $fila["profesionProfesor"] . "<hr>";
 
 }
+//$fila->nombre_campo;
+
+//<html>
+//<thead>
+//<tr>
+//<td>ISBN</td>
+//<td>T&iacute;tulo</td>
+//<td>Fecha</td></tr>
+//</thead>
+ 
+//<?php 	
+//for ($x=0;$x<$numfilas;$x++) {
+//	$fila = $result->fetch_object();
+//	echo "<tr>";
+//	echo "<td>".$fila->nombreProfesor."</td>";
+//	echo "<td>".$fila->rutProfesor."</td>";
+//	echo "<td>".$fila->profesionProfesor."</td>";
+//	echo "</tr>";
+//}
+//
 
 
 }
