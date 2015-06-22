@@ -24,8 +24,10 @@ $resultado = $db1-> query($consulta);
 
 $numerosfilas=$resultado->num_rows;
 echo "el numero de elementos es " .$numerosfilas;
+echo " <br>";
 
 echo "<span style='color: blue;'>Extracción de todas las filas ...</span>";
+echo "<br> ";
 for($x=0;$x<$numerosfilas;$x++){
 	$fila = $resultado->fetch_object();
 	echo "<tr>";
@@ -33,6 +35,7 @@ for($x=0;$x<$numerosfilas;$x++){
 	echo "<td>".$fila->rutProfesor."</td>";
 	echo "<td>".$fila->profesionProfesor."</td>";
 	echo "</tr>";
+	echo "<br> ";
 //while($file = $resultado -> fbsql_fetch_row() ){
 
 //echo "nombre: " . $fila["nombreProfesor"] . "";
